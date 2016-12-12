@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wordclasses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wordclasses.each do |wordclass| %>
+      <tr>
+        <td><%= wordclass.name %></td>
+        <td><%= link_to 'Show', wordclass %></td>
+        <td><%= link_to 'Edit', edit_wordclass_path(wordclass) %></td>
+        <td><%= link_to 'Destroy', wordclass, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wordclass', new_wordclass_path %>

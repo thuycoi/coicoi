@@ -1,0 +1,1 @@
+json.array! @wordclasses, partial: 'wordclasses/wordclass', as: :wordclass

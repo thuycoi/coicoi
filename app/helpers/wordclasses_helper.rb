@@ -1,0 +1,2 @@
+module WordclassesHelper
+end
