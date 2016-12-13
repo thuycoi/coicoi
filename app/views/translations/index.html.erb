@@ -14,8 +14,8 @@
   <tbody>
     <% @translations.each do |translation| %>
       <tr>
-        <td><%= translation.german %></td>
-        <td><%= translation.vietnamese %></td>
+        <td><%= translation.german_id %></td>
+        <td><%= translation.vietnamese_id %></td>
         <td><%= link_to 'Show', translation %></td>
         <td><%= link_to 'Edit', edit_translation_path(translation) %></td>
         <td><%= link_to 'Destroy', translation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,4 +26,10 @@
 
 <br>
 
-<%= link_to 'New Translation', new_translation_path %>
+<%= link_to 'New Translation', new_translation_path %> </br>
+<%= link_to 'Words', words_path %> </br>
+<%= link_to 'Wordclass', wordclasses_path %> </br>
+<%= link_to 'Definitions', definitions_path %> </br>
+<%= link_to 'User', users_path %> </br>
+<%= link_to 'Language', languages_path %> </br>
+<%= link_to 'Examples', examples_path %>

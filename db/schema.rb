@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161212211524) do
+ActiveRecord::Schema.define(version: 20161212151455) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "body",       limit: 65535
@@ -54,12 +54,13 @@ ActiveRecord::Schema.define(version: 20161212211524) do
   end
 
   create_table "translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer  "german"
-    t.integer  "vietnamese"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["german"], name: "FK_German", using: :btree
-    t.index ["vietnamese"], name: "FK_Vietnamese", using: :btree
+    t.integer  "german_id"
+    t.integer  "vietnamese_id"
+    t.text     "note",          limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["german_id"], name: "index_translations_on_german_id", using: :btree
+    t.index ["vietnamese_id"], name: "index_translations_on_vietnamese_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -77,7 +78,7 @@ ActiveRecord::Schema.define(version: 20161212211524) do
   end
 
   create_table "words", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "body"
+    t.string   "body",                                    collation: "utf8_general_ci"
     t.text     "note",         limit: 65535
     t.integer  "language_id"
     t.integer  "wordclass_id"
@@ -87,14 +88,12 @@ ActiveRecord::Schema.define(version: 20161212211524) do
     t.index ["wordclass_id"], name: "index_words_on_wordclass_id", using: :btree
   end
 
-  add_foreign_key "comments", "users"
-  add_foreign_key "comments", "words"
   add_foreign_key "definitions", "words"
   add_foreign_key "examples", "Definitions"
   add_foreign_key "favourites", "users"
   add_foreign_key "favourites", "words"
-  add_foreign_key "translations", "words", column: "german", name: "FK_German"
-  add_foreign_key "translations", "words", column: "vietnamese", name: "FK_Vietnamese"
+  add_foreign_key "translations", "words", column: "german_id"
+  add_foreign_key "translations", "words", column: "vietnamese_id"
   add_foreign_key "words", "languages"
   add_foreign_key "words", "wordclasses"
 end
