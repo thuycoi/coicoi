@@ -17,7 +17,7 @@ class TranslationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create translation" do
     assert_difference('Translation.count') do
-      post translations_url, params: { translation: { german: @translation.german, vietnamese: @translation.vietnamese } }
+      post translations_url, params: { translation: { german: @translation.german, vietnamse: @translation.vietnamse } }
     end
 
     assert_redirected_to translation_url(Translation.last)
@@ -34,7 +34,7 @@ class TranslationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update translation" do
-    patch translation_url(@translation), params: { translation: { german: @translation.german, vietnamese: @translation.vietnamese } }
+    patch translation_url(@translation), params: { translation: { german: @translation.german, vietnamse: @translation.vietnamse } }
     assert_redirected_to translation_url(@translation)
   end
 

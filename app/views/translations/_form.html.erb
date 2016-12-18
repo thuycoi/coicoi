@@ -13,12 +13,17 @@
 
   <div class="field">
     <%= f.label :german %>
-    <%= f.text_field :german_id %>
+    <%= f.number_field :german_id %>
   </div>
 
   <div class="field">
     <%= f.label :vietnamese %>
-    <%= f.text_field :vietnamese_id %>
+    <%= f.number_field :vietnamese_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :note %>
+    <%= f.text_area :note %>
   </div>
 
   <div class="actions">
