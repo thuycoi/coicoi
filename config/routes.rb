@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :translations
   resources :favourites
   resources :comments
   resources :users
@@ -8,6 +7,6 @@ Rails.application.routes.draw do
   resources :words
   resources :definitions
   resources :examples
-  root 'translations#index'
+  root 'words#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

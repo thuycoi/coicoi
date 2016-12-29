@@ -53,16 +53,6 @@ ActiveRecord::Schema.define(version: 20161214130651) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "translations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.text     "note",          limit: 65535
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "german_id"
-    t.integer  "vietnamese_id"
-    t.index ["german_id"], name: "fk_german_id", using: :btree
-    t.index ["vietnamese_id"], name: "fk_vietnamese_id", using: :btree
-  end
-
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "password"
@@ -92,8 +82,6 @@ ActiveRecord::Schema.define(version: 20161214130651) do
   add_foreign_key "examples", "Definitions"
   add_foreign_key "favourites", "users"
   add_foreign_key "favourites", "words"
-  add_foreign_key "translations", "words", column: "german_id", name: "fk_german_id"
-  add_foreign_key "translations", "words", column: "vietnamese_id", name: "fk_vietnamese_id"
   add_foreign_key "words", "languages"
   add_foreign_key "words", "wordclasses"
 end

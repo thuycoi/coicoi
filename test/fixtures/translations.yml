@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  german: 1
-  vietnamse: 1
-
-two:
-  german: 1
-  vietnamse: 1
