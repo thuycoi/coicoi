@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :note %>
-    <%= f.text_area :note %>
+    <%= f.label :wordclass_id %>
+    <%= f.text_field :wordclass_id %>
   </div>
 
   <div class="field">
@@ -27,13 +27,23 @@
   </div>
 
   <div class="field">
+    <%= f.label :example %>
+    <%= f.text_area :example %>
+  </div>
+
+  <div class="field">
+    <%= f.label :synonym %>
+    <%= f.text_field :words_id %>
+  </div>
+
+  <div class="field">
     <%= f.label :language_id %>
     <%= f.text_field :language_id %>
   </div>
 
   <div class="field">
-    <%= f.label :wordclass_id %>
-    <%= f.text_field :wordclass_id %>
+    <%= f.label :note %>
+    <%= f.text_area :note %>
   </div>
 
   <div class="actions">

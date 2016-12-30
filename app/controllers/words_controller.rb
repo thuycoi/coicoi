@@ -10,6 +10,8 @@ class WordsController < ApplicationController
   # GET /words/1
   # GET /words/1.json
   def show
+    @comments = @word.comments.all
+    @comment = @word.comments.build
   end
 
   # GET /words/new
@@ -69,6 +71,6 @@ class WordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def word_params
-      params.require(:word).permit(:body, :definition ,:note, :language_id, :wordclass_id)
+      params.require(:word).permit(:body, :definition ,:note, :example, :words_id, :language_id, :wordclass_id)
     end
 end

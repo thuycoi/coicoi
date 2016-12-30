@@ -1,0 +1,17 @@
+<h1>Suchergebnis<h1>
+
+
+<% if @search.words.empty? %>
+  <p>No Records Found</p>
+
+<% else %>
+  <% @search.words.each do |c| %>
+  <br>
+
+  <div class="div">
+    <h3><%= c.body %></h3>
+    <p> Wortart:  <%= c.wordclass_id %></p>
+  </div>
+
+<% end %>
+<% end %>

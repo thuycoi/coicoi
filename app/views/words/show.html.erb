@@ -6,24 +6,46 @@
 </p>
 
 <p>
+  <strong>Wortart:</strong>
+  <%= @word.wordclass.name %>
+</p>
+
+<p>
   <strong>Definition:</strong>
   <%= @word.definition %>
 </p>
 
 <p>
-  <strong>Note:</strong>
+  <strong>Example:</strong>
+  <%= @word.example %>
+</p>
+
+<p>
+  <strong>Synonym:</strong>
+  <%= @word.words_id %>
+</p>
+
+
+<p>
+  <strong>Anmerkung:</strong>
   <%= @word.note %>
 </p>
 
-<p>
-  <strong>Language:</strong>
-  <%= @word.language.name %>
-</p>
+<br>_______________________</br>
 
-<p>
-  <strong>Wordclass:</strong>
-  <%= @word.wordclass.name %>
-</p>
+<h3>Kommentare</h3>
+<table>
+  <% if @comments.empty? %>
+    Noch keine Kommentare
+  <% else %>
+  <% @comments.each do |comment| %>
+    <tr>
+      <th><%= comment.commenter %> sagt</th>
+      <td><%= comment.body %> <tab> <i>am <%= comment.created_at %></i> </td>
+    </tr>
+    <%end%>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_word_path(@word) %> |
 <%= link_to 'Back', words_path %>

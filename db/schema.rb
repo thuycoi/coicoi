@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161230011208) do
+ActiveRecord::Schema.define(version: 20161230144438) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "body",       limit: 65535
@@ -53,6 +53,13 @@ ActiveRecord::Schema.define(version: 20161230011208) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "searches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "keywords"
+    t.integer  "wordclass_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "password"
@@ -75,8 +82,11 @@ ActiveRecord::Schema.define(version: 20161230011208) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.text     "definition",   limit: 65535
+    t.integer  "words_id"
+    t.text     "example",      limit: 65535
     t.index ["language_id"], name: "index_words_on_language_id", using: :btree
     t.index ["wordclass_id"], name: "index_words_on_wordclass_id", using: :btree
+    t.index ["words_id"], name: "index_words_on_words_id", using: :btree
   end
 
   add_foreign_key "definitions", "words"
@@ -85,4 +95,5 @@ ActiveRecord::Schema.define(version: 20161230011208) do
   add_foreign_key "favourites", "words"
   add_foreign_key "words", "languages"
   add_foreign_key "words", "wordclasses"
+  add_foreign_key "words", "words", column: "words_id"
 end
