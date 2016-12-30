@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Body</th>
+      <th>Definition</th>
       <th>Note</th>
       <th>Language</th>
       <th>Wordclass</th>
@@ -16,11 +17,11 @@
   <tbody>
     <% @words.each do |word| %>
       <tr>
-        <td><%= word.body %></td>
+        <td><%= link_to word.body , word %></td>
+        <td><%= word.definition %></td>
         <td><%= word.note %></td>
         <td><%= word.language.name %></td>
         <td><%= word.wordclass.name %></td>
-        <td><%= link_to 'Show', word %></td>
         <td><%= link_to 'Edit', edit_word_path(word) %></td>
         <td><%= link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

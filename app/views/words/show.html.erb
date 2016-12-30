@@ -6,18 +6,23 @@
 </p>
 
 <p>
+  <strong>Definition:</strong>
+  <%= @word.definition %>
+</p>
+
+<p>
   <strong>Note:</strong>
   <%= @word.note %>
 </p>
 
 <p>
   <strong>Language:</strong>
-  <%= @word.language %>
+  <%= @word.language.name %>
 </p>
 
 <p>
   <strong>Wordclass:</strong>
-  <%= @word.wordclass %>
+  <%= @word.wordclass.name %>
 </p>
 
 <%= link_to 'Edit', edit_word_path(@word) %> |

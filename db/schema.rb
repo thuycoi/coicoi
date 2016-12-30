@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214130651) do
+ActiveRecord::Schema.define(version: 20161230011208) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.text     "body",       limit: 65535
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20161214130651) do
     t.integer  "wordclass_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.text     "definition",   limit: 65535
     t.index ["language_id"], name: "index_words_on_language_id", using: :btree
     t.index ["wordclass_id"], name: "index_words_on_wordclass_id", using: :btree
   end
