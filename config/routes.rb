@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'signup' => 'users#new', :as =>'signup'
+  get 'login' => 'sessions#new', :as =>'login'
+  get 'logout' => 'sessions#delete', :as => 'logout'
+
   resources :favourites
 
   resources :users
