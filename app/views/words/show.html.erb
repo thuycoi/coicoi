@@ -1,54 +1,72 @@
 <p id="notice"><%= notice %></p>
 
-<<<<<<< HEAD
-<h1>
-  <%= @word.body %>
-</h1>
-=======
-<h1>  <%= @word.body %> </h1>
->>>>>>> authentication
-
-<p>
-  <strong>Wortart:</strong>
-  <%= @word.wordclass.name %>
-</p>
-
-<p>
-  <strong>Definition:</strong>
-  <%= @word.definition %>
-</p>
-
-<p>
-  <strong>Example:</strong>
-  <%= @word.example %>
-</p>
-
-<p>
-  <strong>Synonym:</strong>
-  <%= @word.words_id %>
-</p>
+<!-- Fixed navbar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+        </button>
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="#">Login</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
 
 
-<p>
-  <strong>Anmerkung:</strong>
-  <%= @word.note %>
-</p>
+<!-- Content -->
+<div class="container">
+  	<div class="row">
+      <div class="col-sm-2">
+          <ul id="sidebar" class="nav nav-stacked affix">
+            <li><%= link_to 'Zurück', words_path %></a></li>
+            <li> <%= link_to 'Wort bearbeiten', edit_word_path(@word) %> </a></li>
+        </ul>
+      </div>
+      <div class="col-sm-10">
+        <h1>  <%= @word.body %> </h1>
+      <p>
+        <strong>Wortart:</strong>
+        <%= @word.wordclass.name %>
+      </p>
 
-<br>_______________________</br>
+      <p>
+        <strong>Definition:</strong>
+        <%= @word.definition %>
+      </p>
 
-<h3>Kommentare</h3>
-<table>
-  <% if @comments.empty? %>
-    Noch keine Kommentare
-  <% else %>
-  <% @comments.each do |comment| %>
-    <tr>
-      <th><%= comment.commenter %> sagt</th>
-      <td><%= comment.body %> <tab> <i>am <%= comment.created_at %></i> </td>
-    </tr>
-    <%end%>
-  <% end %>
-</table>
+      <p>
+        <strong>Example:</strong>
+        <%= @word.example %>
+      </p>
 
-<%= link_to 'Edit', edit_word_path(@word) %> |
-<%= link_to 'Back', words_path %>
+      <p>
+        <strong>Synonym:</strong>
+        <%= @word.words_id %>
+      </p>
+
+
+      <p>
+        <strong>Anmerkung:</strong>
+        <%= @word.note %>
+      </p>
+
+      <br>_______________________</br>
+
+      <h3>Kommentare</h3>
+      <table>
+        <% if @comments.empty? %>
+          Noch keine Kommentare
+        <% else %>
+        <% @comments.each do |comment| %>
+          <tr>
+            <th><%= comment.commenter %> sagt</th>
+            <td><%= comment.body %> <tab> <i>am <%= comment.created_at %></i> </td>
+          </tr>
+          <%end%>
+        <% end %>
+      </table>
+
+      </div>
+    </div>
+</div>
